@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="5">
+      <Unit0>
+        <Filename Value="kernbruecke.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="60" Y="8"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="u_uebersetzung.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="95"/>
+        <CursorPos Y="57"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="u_hexstring.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="12"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="u_netzwerkinfo.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="11"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="u_mjson.pas"/>
+        <UnitName Value="u_MJSON"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="65" Y="29"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit4>
+    </Units>
+    <JumpHistory Count="5" HistoryIndex="4">
+      <Position1>
+        <Filename Value="u_uebersetzung.pas"/>
+        <Caret Line="8" Column="58"/>
+      </Position1>
+      <Position2>
+        <Filename Value="u_uebersetzung.pas"/>
+        <Caret Line="13" Column="28" TopLine="2"/>
+      </Position2>
+      <Position3>
+        <Filename Value="u_uebersetzung.pas"/>
+        <Caret Line="24" Column="37" TopLine="10"/>
+      </Position3>
+      <Position4>
+        <Filename Value="u_uebersetzung.pas"/>
+        <Caret Line="45" Column="42" TopLine="15"/>
+      </Position4>
+      <Position5>
+        <Filename Value="kernbruecke.lpr"/>
+        <Caret Line="15" Column="35"/>
+      </Position5>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

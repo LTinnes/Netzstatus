@@ -1,0 +1,185 @@
+object Hauptform: THauptform
+  Left = 433
+  Height = 551
+  Top = 186
+  Width = 1094
+  Caption = 'Netzwerkstatus'
+  ClientHeight = 551
+  ClientWidth = 1094
+  DesignTimePPI = 90
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '2.0.2.0'
+  object PageControler: TPageControl
+    Left = 0
+    Height = 532
+    Top = 0
+    Width = 1094
+    ActivePage = ConnectionTab
+    Align = alClient
+    ParentFont = False
+    TabIndex = 0
+    TabOrder = 0
+    object ConnectionTab: TTabSheet
+      Caption = 'Verbindungen'
+      ClientHeight = 499
+      ClientWidth = 1088
+      ParentFont = False
+      object Uebersicht: TListView
+        Left = 0
+        Height = 499
+        Top = 0
+        Width = 1088
+        Align = alClient
+        Columns = <        
+          item
+            Caption = 'PID'
+            MinWidth = 30
+          end        
+          item
+            Caption = 'CmdLine'
+            MinWidth = 100
+            Width = 320
+          end        
+          item
+            Caption = 'Protokoll'
+            MinWidth = 100
+            Width = 100
+          end        
+          item
+            Caption = 'Status'
+            MinWidth = 100
+            Width = 100
+          end        
+          item
+            Caption = 'Ziel Adresse'
+            MinWidth = 100
+            Width = 100
+          end        
+          item
+            Caption = 'Ziel Port'
+            MinWidth = 100
+            Width = 100
+          end        
+          item
+            Caption = 'Quell Adresse'
+            MinWidth = 100
+            Width = 112
+          end        
+          item
+            Caption = 'Quell Port'
+            MinWidth = 100
+            Width = 189
+          end>
+        ParentFont = False
+        PopupMenu = Kontext
+        ReadOnly = True
+        RowSelect = True
+        TabOrder = 0
+        ViewStyle = vsReport
+      end
+    end
+    object BlockiertTab: TTabSheet
+      Caption = 'Blockiert'
+      ClientHeight = 499
+      ClientWidth = 1088
+      ParentFont = False
+      object IPMemo: TMemo
+        Left = 0
+        Height = 409
+        Top = 0
+        Width = 1088
+        Align = alClient
+        Font.Height = -14
+        Font.Name = 'Courier 10 Pitch'
+        Lines.Strings = (
+          'Memo1'
+        )
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object AnfragenTab: TTabSheet
+      Caption = 'Anfragen'
+      ClientHeight = 499
+      ClientWidth = 1088
+      ParentFont = False
+      object BTN_ReloadBlock: TButton
+        Left = 8
+        Height = 23
+        Top = 15
+        Width = 322
+        Caption = 'Blockierte Hostnamen neu laden'
+        OnClick = BTN_ReloadBlockClick
+        ParentFont = False
+        TabOrder = 0
+      end
+      object BTN_SaveBlock: TButton
+        Left = 8
+        Height = 23
+        Top = 45
+        Width = 322
+        Caption = 'Blockierte Hostnamen speichern'
+        OnClick = BTN_SaveBlockClick
+        ParentFont = False
+        TabOrder = 1
+      end
+      object AboutLabel: TLabel
+        Left = 8
+        Height = 16
+        Top = 112
+        Width = 67
+        Caption = 'License: MIT '
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'Verlauf'
+      ClientHeight = 499
+      ClientWidth = 1088
+      ParentFont = False
+      object VerlaufMemo: TMemo
+        Left = 0
+        Height = 252
+        Top = 0
+        Width = 626
+        Align = alClient
+        Lines.Strings = (
+          'VerlaufMemo'
+        )
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 19
+    Top = 532
+    Width = 1094
+    Panels = <>
+    ParentFont = False
+    SimpleText = 'Laden ...'
+  end
+  object Kontext: TPopupMenu
+    left = 280
+    top = 80
+    object MI_ProzessAbschalten: TMenuItem
+      Caption = 'Prozess Abschalten'
+      OnClick = MI_ProzessAbschaltenClick
+    end
+    object MI_ZielUntersuchen: TMenuItem
+      Caption = 'Ziel Adresse untersuchen'
+      OnClick = MI_ZielUntersuchenClick
+    end
+  end
+  object UpdateData: TTimer
+    Interval = 10000
+    OnTimer = UpdateDataTimer
+    left = 144
+    top = 80
+  end
+end

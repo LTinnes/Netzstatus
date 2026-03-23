@@ -1,0 +1,50 @@
+object IPtoName: TIPtoName
+  Left = 351
+  Height = 269
+  Top = 33
+  Width = 427
+  Caption = 'Namensauflösung für IP Adresse'
+  ClientHeight = 269
+  ClientWidth = 427
+  DesignTimePPI = 90
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object BTN_BLOCKAL: TButton
+    Left = 230
+    Height = 23
+    Top = 240
+    Width = 190
+    Caption = 'Alle Hostnamen blockieren'
+    OnClick = BTN_BLOCKALClick
+    ParentFont = False
+    TabOrder = 0
+  end
+  object CB_HOSTS: TListBox
+    Left = 8
+    Height = 195
+    Top = 30
+    Width = 412
+    ItemHeight = 0
+    ParentFont = False
+    ScrollWidth = 410
+    TabOrder = 1
+    TopIndex = -1
+  end
+  object LBL_ipaddr: TLabel
+    Left = 8
+    Height = 18
+    Top = 8
+    Width = 68
+    Caption = 'IP Adresse: '
+    ParentColor = False
+    ParentFont = False
+  end
+  object ED_IP: TEdit
+    Left = 98
+    Height = 24
+    Top = 0
+    Width = 322
+    ParentFont = False
+    TabOrder = 2
+  end
+end

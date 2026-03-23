@@ -1,0 +1,46 @@
+program Netzstatus;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms, SysUtils, BaseUnix, u_mainwindow, u_netzwerkinfo, u_hostwindow,
+  u_hostwindowIPv6, u_objektsperre;
+
+{$R *.res}
+
+var
+  netzinfosnap: TNetzInfoSnap;
+
+begin
+
+  if (ParamCount > 0) then
+  begin
+       writeln('child is running...');
+       try
+       netzinfosnap := TNetzInfoSnap.create();
+       netzinfosnap.refresh;
+       netzinfosnap.ForkChild(StrToInt(ParamStr(1)),StrToInt(ParamStr(2)));
+       except
+         writeln('child exception: refreshing');
+       end;
+       writeln('child end-of-proc.');
+
+  end else begin
+
+
+
+  RequireDerivedFormResource:=True;
+  Application.Scaled:=True;
+  Application.Initialize;
+  Application.CreateForm(THauptform, Hauptform);
+  Application.CreateForm(TIPtoName, IPtoName);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+
+  end;
+end.
+
