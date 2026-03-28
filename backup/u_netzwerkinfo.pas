@@ -378,7 +378,7 @@ begin
    item.quellip:= Hex2IPv4(item.quellip);
 
    SetLength(items,Length(items)+1);
-   writeln('items Length: '+IntToStr(Length(items)));
+   //writeln('items Length: '+IntToStr(Length(items)));
 
    items[High(items)] := item;
 
@@ -390,7 +390,7 @@ var
   strlength,i : Integer;
 begin
      fpWrite(cwPipe,count,SizeOf(count));
-     writeln('ForkChild count: '+IntToStr(count));
+     //writeln('ForkChild count: '+IntToStr(count));
      for i := LOW(items) to HIGH(items) do
      begin
           try
@@ -514,7 +514,7 @@ begin
 
      fpRead(pipe[0],count,SizeOf(count));
      SetLength(items,count);
-     writeln('count: '+IntToStr(count));
+     //writeln('count: '+IntToStr(count));
      //writeln('');
 
      //fpRead(pipe[0],items[0],count * SizeOf(TNetzInfoItem))));

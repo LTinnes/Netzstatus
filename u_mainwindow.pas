@@ -34,6 +34,7 @@ type
   THauptform = class(TForm)
     BTN_ReloadBlock: TButton;
     BTN_SaveBlock: TButton;
+    IconImgList: TImageList;
     Kontext: TPopupMenu;
     IPMemo: TMemo;
     AboutLabel: TLabel;
@@ -44,7 +45,7 @@ type
     PageControler: TPageControl;
     ConnectionTab: TTabSheet;
     BlockiertTab: TTabSheet;
-    AnfragenTab: TTabSheet;
+    EinstellungenTab: TTabSheet;
     StatusBar: TStatusBar;
     TabSheet1: TTabSheet;
     Uebersicht: TListView;
@@ -292,7 +293,6 @@ begin
   iptonamewnd.execforip(ip_der_blockade);
   iptonamewnd.ShowModal;
 end;
-
 
 procedure THauptform.UpdateStatus(status:string);
 begin

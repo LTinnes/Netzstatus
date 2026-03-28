@@ -520,6 +520,7 @@ begin
      //fpRead(pipe[0],items[0],count * SizeOf(TNetzInfoItem))));
 
      self.Benutzen;
+     // Next bug is to be thought about line above
      for i:=LOW(items) to HIGH(items)-1 do
      begin
 
