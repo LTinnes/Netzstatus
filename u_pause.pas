@@ -14,6 +14,7 @@ type
     procedure Inc;
     procedure reset;
     function pause():boolean;
+    procedure update(maxiteration:Integer);
     constructor create(maxiteration:Integer);
   private
     counter,max: Integer;
@@ -31,6 +32,13 @@ begin
      self.max := maxiteration;
 end;
 
+
+procedure TPause.update(maxiteration:Integer);
+begin
+     self.Benutzen;
+     self.max:=maxiteration;
+     self.Freigeben;
+end;
 
 procedure TPause.Inc;
 begin

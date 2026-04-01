@@ -1,38 +1,39 @@
 object Hauptform: THauptform
-  Left = 473
-  Height = 551
-  Top = 194
-  Width = 1094
+  Left = 537
+  Height = 511
+  Top = 254
+  Width = 931
   Caption = 'Netzwerkstatus'
-  ClientHeight = 551
-  ClientWidth = 1094
+  ClientHeight = 511
+  ClientWidth = 931
   DesignTimePPI = 90
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
+  Position = poScreenCenter
   LCLVersion = '2.0.2.0'
   object PageControler: TPageControl
     Left = 0
-    Height = 532
+    Height = 492
     Top = 0
-    Width = 1094
-    ActivePage = EinstellungenTab
+    Width = 931
+    ActivePage = ConnectionTab
     Align = alClient
     Images = IconImgList
     ParentFont = False
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     object ConnectionTab: TTabSheet
       Caption = 'Verbindungen'
-      ClientHeight = 498
-      ClientWidth = 1088
+      ClientHeight = 458
+      ClientWidth = 925
       ImageIndex = 0
       ParentFont = False
       object Uebersicht: TListView
         Left = 0
-        Height = 498
+        Height = 458
         Top = 0
-        Width = 1088
+        Width = 925
         Align = alClient
         Columns = <        
           item
@@ -84,8 +85,8 @@ object Hauptform: THauptform
     end
     object BlockiertTab: TTabSheet
       Caption = 'Blockiert'
-      ClientHeight = 498
-      ClientWidth = 1088
+      ClientHeight = 458
+      ClientWidth = 925
       ImageIndex = 1
       ParentFont = False
       object IPMemo: TMemo
@@ -105,8 +106,8 @@ object Hauptform: THauptform
     end
     object EinstellungenTab: TTabSheet
       Caption = 'Einstellungen'
-      ClientHeight = 498
-      ClientWidth = 1088
+      ClientHeight = 458
+      ClientWidth = 925
       ImageIndex = 2
       ParentFont = False
       object BTN_ReloadBlock: TButton
@@ -122,7 +123,7 @@ object Hauptform: THauptform
       object BTN_SaveBlock: TButton
         Left = 8
         Height = 23
-        Top = 45
+        Top = 48
         Width = 322
         Caption = 'Blockierte Hostnamen speichern'
         OnClick = BTN_SaveBlockClick
@@ -132,9 +133,9 @@ object Hauptform: THauptform
       object AboutLabel: TLabel
         Left = 8
         Height = 15
-        Top = 112
-        Width = 83
-        Caption = 'License: MIT '
+        Top = 336
+        Width = 120
+        Caption = 'Code License: MIT '
         ParentColor = False
         ParentFont = False
       end
@@ -148,11 +149,98 @@ object Hauptform: THauptform
         OnClick = BTN_pausebeendenClick
         TabOrder = 2
       end
+      object GroupBox1: TGroupBox
+        Left = 8
+        Height = 201
+        Top = 120
+        Width = 322
+        Caption = ' Allgemeine Einstellungen '
+        ClientHeight = 184
+        ClientWidth = 318
+        TabOrder = 3
+        object Label1: TLabel
+          Left = 8
+          Height = 15
+          Top = 16
+          Width = 209
+          Caption = 'Anzahl der Durchläufe bis Pause '
+          ParentColor = False
+        end
+        object ED_MAXITERATION: TEdit
+          Left = 228
+          Height = 25
+          Top = 8
+          Width = 51
+          NumbersOnly = True
+          OnChange = ED_MAXITERATIONChange
+          TabOrder = 0
+          Text = '30'
+        end
+        object Label2: TLabel
+          Left = 10
+          Height = 15
+          Top = 52
+          Width = 191
+          Caption = 'Warteintervall nach Durchlauf '
+          ParentColor = False
+        end
+        object ED_WAITINTERVAL: TEdit
+          Left = 228
+          Height = 25
+          Top = 48
+          Width = 51
+          OnChange = ED_WAITINTERVALChange
+          TabOrder = 1
+          Text = '5000'
+        end
+        object Label3: TLabel
+          Left = 280
+          Height = 15
+          Top = 56
+          Width = 19
+          Caption = 'ms'
+          ParentColor = False
+        end
+        object BTN_Anwenden: TButton
+          Left = 8
+          Height = 23
+          Top = 127
+          Width = 294
+          Caption = 'Anwenden'
+          Enabled = False
+          OnClick = BTN_AnwendenClick
+          TabOrder = 2
+        end
+      end
+      object Label4: TLabel
+        Left = 8
+        Height = 15
+        Top = 360
+        Width = 118
+        Caption = 'Icon License:  MIT '
+        ParentColor = False
+      end
+      object Label5: TLabel
+        Left = 8
+        Height = 15
+        Top = 376
+        Width = 155
+        Caption = 'Icon Publisher: Microsoft'
+        ParentColor = False
+      end
+      object Label6: TLabel
+        Left = 8
+        Height = 15
+        Top = 392
+        Width = 145
+        Caption = 'Icon Pack: Fluent Icons'
+        ParentColor = False
+      end
     end
     object TabSheet1: TTabSheet
       Caption = 'Verlauf'
-      ClientHeight = 498
-      ClientWidth = 1088
+      ClientHeight = 458
+      ClientWidth = 925
       ImageIndex = 3
       ParentFont = False
       object VerlaufMemo: TMemo
@@ -173,16 +261,16 @@ object Hauptform: THauptform
   object StatusBar: TStatusBar
     Left = 0
     Height = 19
-    Top = 532
-    Width = 1094
+    Top = 492
+    Width = 931
     Panels = <>
     ParentFont = False
     SimpleText = 'Laden ...'
   end
   object Kontext: TPopupMenu
     Images = IconImgList
-    left = 280
-    top = 80
+    left = 472
+    top = 40
     object MI_ProzessAbschalten: TMenuItem
       Caption = 'Prozess Abschalten'
       ImageIndex = 5
@@ -197,12 +285,12 @@ object Hauptform: THauptform
   object UpdateData: TTimer
     Interval = 10000
     OnTimer = UpdateDataTimer
-    left = 144
-    top = 80
+    left = 520
+    top = 40
   end
   object IconImgList: TImageList
-    left = 400
-    top = 80
+    left = 392
+    top = 40
     Bitmap = {
       4C69060000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

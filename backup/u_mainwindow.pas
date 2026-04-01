@@ -35,10 +35,20 @@ type
     BTN_ReloadBlock: TButton;
     BTN_SaveBlock: TButton;
     BTN_pausebeenden: TButton;
+    BTN_Anwenden: TButton;
+    ED_WAITINTERVAL: TEdit;
+    ED_MAXITERATION: TEdit;
+    GroupBox1: TGroupBox;
     IconImgList: TImageList;
     Kontext: TPopupMenu;
     IPMemo: TMemo;
     AboutLabel: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
     UpdateData: TTimer;
     VerlaufMemo: TMemo;
     MI_ProzessAbschalten: TMenuItem;
@@ -50,9 +60,12 @@ type
     StatusBar: TStatusBar;
     TabSheet1: TTabSheet;
     Uebersicht: TListView;
+    procedure BTN_AnwendenClick(Sender: TObject);
     procedure BTN_pausebeendenClick(Sender: TObject);
     procedure BTN_ReloadBlockClick(Sender: TObject);
     procedure BTN_SaveBlockClick(Sender: TObject);
+    procedure ED_MAXITERATIONChange(Sender: TObject);
+    procedure ED_WAITINTERVALChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -65,6 +78,8 @@ type
     statussection:  TRTLCriticalSection;
     refreshsection: TRTLCriticalSection;
     logsection:     TRTLCriticalSection;
+    maxiteration:   Integer;
+    waitintervall:  Integer;
     procedure AddToUebersicht(pid:string;cmdline:string;protok:string;status:string;zielip:string;zielport:string;quellip:string;quellport:string);
     procedure LoadDeniedHosts();
     procedure WriteDeniedHosts();
@@ -221,9 +236,47 @@ begin
   self.pause.reset;
 end;
 
+procedure THauptform.BTN_AnwendenClick(Sender: TObject);
+var
+  error:boolean;
+begin
+     error := false;
+     try
+        self.maxiteration := StrToInt(self.ED_MAXITERATION.Text);
+     except
+        error := true;
+        Log('Maximale Durchläufe bis Pause konnte nicht geändert werden.');
+     end;
+
+     try
+        self.waitintervall := StrToInt(self.ED_WAITINTERVAL.Text);
+        self.UpdateData.Interval:=self.waitintervall;
+     except
+        error := true;
+        Log('Warteintervall bis zum Nächsten Durchlauf konnte nicht geändert werden.');
+     end;
+
+     if error = false then
+     begin
+        Log('Einstellungen wurden übernommen.');
+        BTN_Anwenden.Enabled:=false;
+     end;
+
+end;
+
 procedure THauptform.BTN_SaveBlockClick(Sender: TObject);
 begin
   WriteDeniedHosts();
+end;
+
+procedure THauptform.ED_MAXITERATIONChange(Sender: TObject);
+begin
+     BTN_Anwenden.Enabled:=true;
+end;
+
+procedure THauptform.ED_WAITINTERVALChange(Sender: TObject);
+begin
+     BTN_Anwenden.Enabled:=true;
 end;
 
 procedure THauptform.FormShow(Sender: TObject);
@@ -317,6 +370,7 @@ begin
    if pause.pause() = false then
    begin
      pause.Inc;
+     pause.update(self.maxiteration);
 
      Hauptform.UpdateStatus('Daten werden eingefügt...');
      Hauptform.RefreshUebersicht();
