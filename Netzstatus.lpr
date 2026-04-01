@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, SysUtils, BaseUnix, u_mainwindow, u_netzwerkinfo, u_hostwindow,
-  u_hostwindowIPv6, u_objektsperre;
+  u_hostwindowIPv6, u_objektsperre, u_pause;
 
 {$R *.res}
 

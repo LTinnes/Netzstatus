@@ -138,6 +138,16 @@ object Hauptform: THauptform
         ParentColor = False
         ParentFont = False
       end
+      object BTN_pausebeenden: TButton
+        Left = 8
+        Height = 23
+        Top = 80
+        Width = 320
+        Caption = 'Pause Beenden'
+        Enabled = False
+        OnClick = BTN_pausebeendenClick
+        TabOrder = 2
+      end
     end
     object TabSheet1: TTabSheet
       Caption = 'Verlauf'

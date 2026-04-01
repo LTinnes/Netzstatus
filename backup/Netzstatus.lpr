@@ -19,7 +19,7 @@ begin
 
   if (ParamCount > 0) then
   begin
-       writeln('child is running...');
+       //writeln('child is running...');
        try
        netzinfosnap := TNetzInfoSnap.create();
        netzinfosnap.refresh;
@@ -27,7 +27,7 @@ begin
        except
          writeln('child exception: refreshing');
        end;
-       writeln('child end-of-proc.');
+       //writeln('child end-of-proc.');
 
   end else begin
 

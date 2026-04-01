@@ -8,7 +8,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Process, Graphics, Dialogs, ComCtrls, Menus,
-  ExtCtrls, StdCtrls, cthreads, BaseUnix, Unix, u_netzwerkinfo, u_hostwindow;
+  ExtCtrls, StdCtrls, cthreads, BaseUnix, Unix, u_netzwerkinfo, u_hostwindow, u_pause;
 
 type
 
@@ -34,6 +34,7 @@ type
   THauptform = class(TForm)
     BTN_ReloadBlock: TButton;
     BTN_SaveBlock: TButton;
+    BTN_pausebeenden: TButton;
     IconImgList: TImageList;
     Kontext: TPopupMenu;
     IPMemo: TMemo;
@@ -49,6 +50,7 @@ type
     StatusBar: TStatusBar;
     TabSheet1: TTabSheet;
     Uebersicht: TListView;
+    procedure BTN_pausebeendenClick(Sender: TObject);
     procedure BTN_ReloadBlockClick(Sender: TObject);
     procedure BTN_SaveBlockClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -58,6 +60,7 @@ type
     procedure MI_ZielUntersuchenClick(Sender: TObject);
     procedure UpdateDataTimer(Sender: TObject);
   private
+    pause:          TPause;
     updatethread:   TUpdateThread;
     statussection:  TRTLCriticalSection;
     refreshsection: TRTLCriticalSection;
@@ -189,6 +192,7 @@ begin
    self.VerlaufMemo.Clear;
    updatethread := TUpdateThread.create(true);
    iptonamewnd := TIPtoName.Create(self);
+   self.pause := TPause.create(30);
 end;
 
 //Schließen im Debugger funktioniert leider nicht aktuell
@@ -210,6 +214,11 @@ end;
 procedure THauptform.BTN_ReloadBlockClick(Sender: TObject);
 begin
   LoadDeniedHosts();
+end;
+
+procedure THauptform.BTN_pausebeendenClick(Sender: TObject);
+begin
+  self.pause.reset;
 end;
 
 procedure THauptform.BTN_SaveBlockClick(Sender: TObject);
@@ -304,17 +313,31 @@ end;
 
 procedure THauptform.UpdateDataTimer(Sender: TObject);
 begin
-   Hauptform.UpdateStatus('Daten werden eingefügt...');
-   Hauptform.RefreshUebersicht();
 
-   //Callback: blockieren von hosts
-   Hauptform.blockhosts();
-   Hauptform.UpdateStatus('');
-   updatethread.Terminate;
-   updatethread.Free;
-   updatethread := TUpdateThread.create(true);
-   updatethread.Start;
+   if pause.pause() = false then
+   begin
+     pause.Inc;
 
+     Hauptform.UpdateStatus('Daten werden eingefügt...');
+     Hauptform.RefreshUebersicht();
+
+     //Callback: blockieren von hosts
+     Hauptform.blockhosts();
+     Hauptform.BTN_pausebeenden.Enabled:=false;
+     Hauptform.UpdateStatus('');
+
+     updatethread.Terminate;
+     updatethread.Free;
+     updatethread := TUpdateThread.create(true);
+     updatethread.Start;
+
+
+   end else
+   begin
+
+     Hauptform.UpdateStatus('Pause: Es wird nicht aktualisiert.');
+     Hauptform.BTN_pausebeenden.Enabled:=true;
+   end;
 end;
 
 
