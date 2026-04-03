@@ -7,10 +7,8 @@
       <Unit0>
         <Filename Value="Netzstatus.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="13"/>
-        <CursorPos X="3" Y="40"/>
+        <CursorPos X="34" Y="30"/>
         <UsageCount Value="259"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -20,8 +18,9 @@
         <ComponentName Value="Hauptform"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="364"/>
-        <CursorPos X="83" Y="383"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="380"/>
+        <CursorPos X="120" Y="394"/>
         <UsageCount Value="259"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
