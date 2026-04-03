@@ -380,7 +380,7 @@ begin
      //Callback: blockieren von hosts
      Hauptform.blockhosts();
      Hauptform.BTN_pausebeenden.Enabled:=false;
-     Hauptform.UpdateStatus('');
+     Hauptform.UpdateStatus('Aktualisiert um '+FormatDateTime('dd.mm.yyyy hh:nn:ss',now));
 
      updatethread.Terminate;
      updatethread.Free;

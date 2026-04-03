@@ -207,6 +207,8 @@ begin
    self.VerlaufMemo.Clear;
    updatethread := TUpdateThread.create(true);
    iptonamewnd := TIPtoName.Create(self);
+   self.maxiteration:=30;
+   self.waitintervall:=5000;
    self.pause := TPause.create(30);
 end;
 

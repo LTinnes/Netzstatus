@@ -7,8 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, SysUtils, BaseUnix, u_mainwindow, u_netzwerkinfo, u_hostwindow,
-  u_hostwindowIPv6, u_objektsperre, u_pause;
+  Forms, SysUtils, BaseUnix, u_mainwindow, u_netzwerkinfo, u_hostwindow, u_objektsperre, u_pause;
 
 {$R *.res}
 
@@ -38,7 +37,7 @@ begin
   Application.Initialize;
   Application.CreateForm(THauptform, Hauptform);
   Application.CreateForm(TIPtoName, IPtoName);
-  Application.CreateForm(TForm1, Form1);
+//Application.CreateForm(TForm1, Form1);
   Application.Run;
 
   end;
