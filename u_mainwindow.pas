@@ -391,7 +391,7 @@ begin
    end else
    begin
 
-     Hauptform.UpdateStatus('Pause: Es wird nicht aktualisiert. Pause seit; '+FormatDateTime('dd.mm.yyyy hh:nn:ss',now));
+     Hauptform.UpdateStatus('Pause: Es wird nicht aktualisiert. Pause seit: '+FormatDateTime('dd.mm.yyyy hh:nn:ss',now));
      Hauptform.BTN_pausebeenden.Enabled:=true;
    end;
 end;
