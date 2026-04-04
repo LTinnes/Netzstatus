@@ -1,14 +1,18 @@
 unit u_mainwindow;
 
 {$mode objfpc}{$H+}
-// todo:
-// Bugfix - Child Termination bei zweitem durchlauf / Client Freeze
+
+
+// TODO:
+//   Zufällig auftretender bug, direkt schließend nach start
+//
 
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Process, Graphics, Dialogs, ComCtrls, Menus,
-  ExtCtrls, StdCtrls, cthreads, BaseUnix, Unix, u_netzwerkinfo, u_hostwindow, u_pause;
+  Classes, SysUtils, Forms, Controls, Process, Graphics, Dialogs, ComCtrls,
+  Menus, ExtCtrls, StdCtrls, Buttons, cthreads, BaseUnix, Unix, u_netzwerkinfo,
+  u_hostwindow, u_pause;
 
 type
 
@@ -49,6 +53,8 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
+    LB_githubnetzstatus: TLabel;
+    LB_githubicons: TLabel;
     UpdateData: TTimer;
     VerlaufMemo: TMemo;
     MI_ProzessAbschalten: TMenuItem;
@@ -69,6 +75,8 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure LB_githubiconsClick(Sender: TObject);
+    procedure LB_githubnetzstatusClick(Sender: TObject);
     procedure MI_ProzessAbschaltenClick(Sender: TObject);
     procedure MI_ZielUntersuchenClick(Sender: TObject);
     procedure UpdateDataTimer(Sender: TObject);
@@ -292,6 +300,18 @@ begin
 
    IPMemo.Clear;
    LoadDeniedHosts();
+end;
+
+/// Vielleicht öffnet der link später irgendwann die seite
+procedure THauptform.LB_githubiconsClick(Sender: TObject);
+begin
+
+end;
+
+procedure THauptform.LB_githubnetzstatusClick(Sender: TObject);
+begin
+      //https://github.com/microsoft/fluentui-system-icons
+      // Compiled at: https://allsvgicons.com/pack/fluent-color/
 end;
 
 procedure THauptform.MI_ProzessAbschaltenClick(Sender: TObject);
