@@ -57,7 +57,9 @@ end;
 
 procedure TNetzInfoSnap.printItemHeadline();
 begin
-    writeln('PID / Status / Ziel IP / Ziel Port / Quell IP / Quell Port / Inode / CmdLine');
+    writeln('PID / Protokoll / Status / Ziel IP / Ziel Port / Quell IP / Quell Port / Inode / CmdLine');
+    writeln('----------------------------------------------------------------------------------------');
+    writeln('');
 end;
 
 
@@ -72,6 +74,7 @@ begin
             +item.quellport+' '
             +item.inode+' '
             +item.cmdline+' ');
+    writeln('');
 end;
 
 function TNetzInfoSnap.pidtocmdline(in_spid: string):string;

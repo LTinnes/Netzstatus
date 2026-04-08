@@ -29,13 +29,13 @@ begin
           netzinfosnap.Benutzen;
 
           netzinfosnap.printItemHeadline;
+
           for i := Low(netzinfosnap.items) to High(netzinfosnap.items) do
           begin
-            netzinfosnap.printItem(netzinfosnap.items[i]);
+            netzinfosnap.printItem(netzinfosnap.items[i]);   
           end;
 
           netzinfosnap.Freigeben;
-
           Application.Terminate;
           fpExit(0);
 
