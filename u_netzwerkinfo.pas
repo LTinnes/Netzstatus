@@ -28,6 +28,8 @@ type
       procedure refresh;
       procedure ForkRun();
       procedure ForkChild(cwPipe:cint;crPipe:cint);
+      procedure printItem(item: TNetzInfoItem);
+      procedure printItemHeadline();
       function get_count():integer;
     private
       count: integer;
@@ -51,6 +53,25 @@ constructor TNetzInfoSnap.create();
 begin
    self.ObjektSperreInit;
    error := false;
+end;
+
+procedure TNetzInfoSnap.printItemHeadline();
+begin
+    writeln('PID / Status / Ziel IP / Ziel Port / Quell IP / Quell Port / Inode / CmdLine');
+end;
+
+
+procedure TNetzInfoSnap.printItem(item: TNetzInfoItem);
+begin
+    writeln(item.PID+' '
+            +item.protokoll+' '
+            +item.status+' '
+            +item.zielip+' '
+            +item.zielport+' '
+            +item.quellip+' '
+            +item.quellport+' '
+            +item.inode+' '
+            +item.cmdline+' ');
 end;
 
 function TNetzInfoSnap.pidtocmdline(in_spid: string):string;
@@ -442,6 +463,7 @@ end;
 
 // Danke ChatGPT
 // Hier wird noch ein Error Handling später implementiert bei Timeout
+// Später in unvorhersehbarer Zukunft
 function TNetzInfoSnap.FpReadT(PipeHandle: THandle; Buffer: Pointer; BufSize: LongInt): LongInt;
 var
   FDSet: TFDSet;

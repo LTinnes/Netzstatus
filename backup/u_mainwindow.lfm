@@ -1,7 +1,7 @@
 object Hauptform: THauptform
-  Left = 529
+  Left = 248
   Height = 511
-  Top = 207
+  Top = 166
   Width = 931
   Caption = 'Netzwerkstatus'
   ClientHeight = 511
@@ -296,7 +296,7 @@ object Hauptform: THauptform
   object Kontext: TPopupMenu
     Images = IconImgList
     left = 472
-    top = 40
+    top = 64
     object MI_ProzessAbschalten: TMenuItem
       Caption = 'Prozess Abschalten'
       ImageIndex = 5
@@ -311,12 +311,12 @@ object Hauptform: THauptform
   object UpdateData: TTimer
     Interval = 10000
     OnTimer = UpdateDataTimer
-    left = 560
-    top = 40
+    left = 552
+    top = 64
   end
   object IconImgList: TImageList
     left = 392
-    top = 40
+    top = 64
     Bitmap = {
       4C69070000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

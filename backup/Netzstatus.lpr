@@ -37,7 +37,7 @@ begin
   Application.Initialize;
   Application.CreateForm(THauptform, Hauptform);
   Application.CreateForm(TIPtoName, IPtoName);
-  Application.CreateForm(TForm1, Form1);
+//Application.CreateForm(TForm1, Form1);
   Application.Run;
 
   end;

@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "fpc",
+			"label": "Netzstatus",
+			"file": "Netzstatus.lpr",
+			"buildOption": {
+				"unitOutputDir": "./bin/${targetOS}-${targetCPU}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		}
+	]
+}

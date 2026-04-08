@@ -66,8 +66,6 @@ type
     StatusBar: TStatusBar;
     TabSheet1: TTabSheet;
     Uebersicht: TListView;
-    procedure BitBtn_GithubIconsClick(Sender: TObject);
-    procedure BitBtn_GithubNetzstatusClick(Sender: TObject);
     procedure BTN_AnwendenClick(Sender: TObject);
     procedure BTN_pausebeendenClick(Sender: TObject);
     procedure BTN_ReloadBlockClick(Sender: TObject);
@@ -304,6 +302,7 @@ begin
    LoadDeniedHosts();
 end;
 
+////////////////////////////////////////////////////////////////////////////////
 /// Vielleicht öffnet der link später irgendwann die seite
 procedure THauptform.LB_githubiconsClick(Sender: TObject);
 begin
@@ -313,8 +312,9 @@ end;
 procedure THauptform.LB_githubnetzstatusClick(Sender: TObject);
 begin
       //https://github.com/microsoft/fluentui-system-icons
-      // Compiled at: https://allsvgicons.com/pack/fluent-color/
+      // Vorkompilierter Download: https://allsvgicons.com/pack/fluent-color/
 end;
+////////////////////////////////////////////////////////////////////////////////
 
 procedure THauptform.MI_ProzessAbschaltenClick(Sender: TObject);
 var
