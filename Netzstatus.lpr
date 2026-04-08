@@ -41,6 +41,20 @@ begin
 
         end;
 
+        if ParamStr(1) = '--help' then
+        begin
+          writeln(' Netzstatus ');
+          writeln('Ein OpenSource Monitor für Netzwerkverbindungen zur Verwendung in Linux-Artigen Betriebssystemen');
+          writeln('');
+          writeln('Kommandozeilen Optionen:');
+          writeln(' --help    Zeigt die Hilfe und Information im Terminal an.');
+          writeln(' --print   Zeigt die Netzwerkverbindungen mit allen Informationen an.');
+          writeln('');
+          writeln('Weitere Informationen: https://github.com/LTinnes/Netzstatus');
+          Application.Terminate;
+          fpExit(0);
+        end;
+
       except
       end;
 

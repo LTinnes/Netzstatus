@@ -660,6 +660,7 @@ var
   udpip4sockets,udpip6sockets: TextFile;
 
 begin
+   self.Benutzen;
    SetLength(items,0);
    count := -1;
    i := -1;
@@ -725,7 +726,7 @@ begin
        error := true;
        exit;
      end;
-
+    self.Freigeben;
 end;
 
 
